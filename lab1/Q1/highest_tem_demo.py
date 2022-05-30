@@ -165,9 +165,14 @@ pre_o = pre_all.filter(lambda x: int(x[0][0][0:4])>=1993 and int(x[0][0][0:4])<=
 
 #Get average
 pre_o_ave = pre_o.refuceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
-pre_o_ave = pre_o_ave.map(lambda x:(x[0],x[1][0]/x[1][0]))
+# (key,value)=((year-month,station),avg_pre)
+pre_o_ave = pre_o_ave.map(lambda x:(x[0],x[1][0]/x[1][1]))
+# (key,value)=((year-month),(avg_pre,1))
+pre_o_month = pre_o_ave.map(lambda x: (x[0][0],(x[1],1)))
+pre_o_month = pre_o_month.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
+pre_o = pre_o_month.map(lambda x : (x[0],x[1][0]/x[1][1]))
 
-print(pre_o_ave.collect())
+print(pre_o.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
-pre_o_ave.saveAsTextFile("BDA/output")
+pre_o.saveAsTextFile("BDA/output")
