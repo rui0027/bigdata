@@ -1,21 +1,18 @@
 from pyspark import SparkContext
+from pyspark.sql import SQLContext, Row
+from pyspark.sql import functions as F
 
-sc = SparkContext(appName = "exercise 1")
-# This path is to the file on hdfs
-temperature_file = sc.textFile("BDA/input/temperature-readings-small.csv")
-lines = temperature_file.map(lambda line: line.split(";"))
-
-# (key, value) = (year,temperature)
-year_temperature = lines.map(lambda x: (x[1][0:4], (x[0],float(x[3]))))
-
-#filter
-year_temperature = year_temperature.filter(lambda x: int(x[0])>=1950 or int(x[0])<=2014)
-
-#Get max
-max_temperatures = year_temperature.reduceByKey(lambda a,b: (a[0], max(a[1], b[1])))
-max_temperatures = max_temperatures.sortBy(ascending = False, keyfunc=lambda k: k[1])
-
-#print(max_temperatures.collect())
-
-# Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
-max_temperatures.saveAsTextFile("BDA/output")
+# Load a text file and convert each line to a tuple.
+rdd = sc.textFile(”FILENAME")
+parts = rdd.map(lambda l: l.split(";"))
+tempReadingsRow = parts.map(lambda p: (p[0], p[1], int(p[1].split("-")[0]),
+int(p[1].split("-")[1]), p[2], float(p[3]), p[4] ))
+• Specifying the schema programatically and registering the DataFrame as a table
+tempReadingsString = ["station", "date", "year", "month", "time", "value",
+"quality"]
+# Apply the schema to the RDD.
+schemaTempReadings = sqlContext.createDataFrame(tempReadingsRow,
+tempReadingsString)
+# Register the DataFrame as a table.
+schemaTempReadings.registerTempTable("tempReadingsTable")
+# Can run queries now
