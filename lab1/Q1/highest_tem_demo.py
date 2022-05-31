@@ -109,11 +109,6 @@ count_temperatures.saveAsTextFile("BDA/output")
 ### 3)
 from pyspark import SparkContext
 
-def get_maxmin(a,b):
-  if a>=b:
-    return (a,b)
-  else:
-    return (b,a)
 sc = SparkContext(appName = "exercise 1")
 # This path is to the file on hdfs
 temperature_file = sc.textFile("BDA/input/temperature-readings.csv")
@@ -127,14 +122,16 @@ date_temperature = date_temperature.filter(lambda x: int(x[0][0][0:4])>=1960 and
 
 #Get max and min 
 #(key, value) = ((year-month-date,station),(max,min))
-maxmin_temperatures = date_temperature.reduceByKey(get_maxmin)
+max_temperatures = date_temperature.reduceByKey(max)
+min_temperatures = date_temperature.reduceByKey(min)
+maxmin_temperatures = max_temperatures.join(min_temperatures)
 #reduce
 #(key, value) = ((year-month,station),(max,min,1))
-month_temperature = maxmin_temperatures.map(lambda x:((x[0][0][0:7],x[0][1]),(x[1][0],x[1][1],1)))
-ave_temperature = month_temperature.reduceByKey(lambda a,b: (a[0]+a[1]+b[0]+b[1],a[2]+b[2]))
-ave_temperature = ave_temperature.map(lambda x: (x[0],x[1][0]/x[1][1])).sortBy(ascending = False, keyfunc=lambda k: k[1])
+month_temperature = maxmin_temperatures.map(lambda x:((x[0][0][0:7],x[0][1]),(x[1][0],x[1][1],int(1))))
+ave_temperature = month_temperature.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1],a[2]+b[2]))
+ave_temperature = ave_temperature.map(lambda x: (x[0],(x[1][0]+x[1][1])/(x[1][2]*2))).sortBy(ascending = False, keyfunc=lambda k: k[1])
 
-print(ave_temperature.collect())
+#print(ave_temperature.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
 ave_temperature.saveAsTextFile("BDA/output")
@@ -164,12 +161,12 @@ max_pre = station_pre.reduceByKey(lambda a,b: a if a>=b else b)
 max_pre = max_pre.filter(lambda x: x[1]>=100 and x[1]<=200)
 
 #merge
-station_max = max_temp.cogroup(max_pre)
+station_max = max_temp.join(max_pre).sortBy(ascending = False, keyfunc=lambda k: k[0])
 
 #print(max_temperatures.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
-max_temperatures.saveAsTextFile("BDA/output")
+station_max.saveAsTextFile("BDA/output")
 
 
 
