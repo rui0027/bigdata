@@ -158,15 +158,16 @@ station_pre = pre_lines.map(lambda x: (x[0],float(x[3])))
 max_temp = station_temp.reduceByKey(lambda a,b: a if a>=b else b)
 max_temp = max_temp.filter(lambda x: x[1]>=25 and x[1]<=30)
 max_pre = station_pre.reduceByKey(lambda a,b: a if a>=b else b)
-max_pre = max_pre.filter(lambda x: x[1]>=100 and x[1]<=200)
+max_pre = max_pre.filter(lambda x: x[1]>=10 and x[1]<=20)
 
 #merge
-station_max = max_temp.join(max_pre).sortBy(ascending = False, keyfunc=lambda k: k[0])
+station_max = max_temp.join(max_pre)
 
-#print(max_temperatures.collect())
+#print(station_max.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
 station_max.saveAsTextFile("BDA/output")
+
 
 
 
@@ -176,9 +177,9 @@ from pyspark import SparkContext
 sc = SparkContext(appName = "exercise 1")
 # This path is to the file on hdfs
 pre_file = sc.textFile("BDA/input/precipitation-readings.csv")
-pre_lines = temperature_file.map(lambda line: line.split(";"))
+pre_lines = pre_file.map(lambda line: line.split(";"))
 o_file = sc.textFile("BDA/input/stations-Ostergotland.csv")
-o_lines = temperature_file.map(lambda line: line.split(";"))
+o_lines = o_file.map(lambda line: line.split(";"))
 
 station_list = o_lines.map(lambda x: x[0]).collect()
 b_station_list = sc.broadcast(station_list)
@@ -187,7 +188,7 @@ pre_all = pre_lines.map(lambda x: ((x[1][0:7],x[0]),(float(x[3]),1)))
 pre_o = pre_all.filter(lambda x: int(x[0][0][0:4])>=1993 and int(x[0][0][0:4])<=2016 and x[0][1] in b_station_list)
 
 #Get average
-pre_o_ave = pre_o.refuceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
+pre_o_ave = pre_o.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
 # (key,value)=((year-month,station),avg_pre)
 pre_o_ave = pre_o_ave.map(lambda x:(x[0],x[1][0]/x[1][1]))
 # (key,value)=((year-month),(avg_pre,1))
