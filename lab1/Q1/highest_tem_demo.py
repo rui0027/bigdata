@@ -69,7 +69,7 @@ year_temperature = year_temperature.map(lambda x: (x[0],1))
 
 #count
 count_temperatures=year_temperature.reduceByKey(lambda a,b: a+b)
-
+count_temperatures=count_temperatures.sortBy(ascending = False, keyfunc=lambda k: k[1])
 print(count_temperatures.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
