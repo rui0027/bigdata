@@ -96,6 +96,7 @@ year_temperature = year_temperature.filter(lambda x: int(x[0][0][0:4])>=1950 and
 year_temperature = year_temperature.reduceByKey(max)
 year_temperature = year_temperature.map(lambda x: (x[0][0],1))
 count_temperatures=year_temperature.reduceByKey(lambda a,b: a+b)
+count_temperatures=count_temperatures.sortBy(ascending = False, keyfunc=lambda k: k[1])
 
 #print(max_temperatures.collect())
 
@@ -122,7 +123,7 @@ lines = temperature_file.map(lambda line: line.split(";"))
 date_temperature = lines.map(lambda x: ((x[1][0:10],x[0]),float(x[3])))
 
 #filter
-date_temperature = date_temperature.filter(lambda x: int(x[0])>=1960 and int(x[0])<=2014)
+date_temperature = date_temperature.filter(lambda x: int(x[0][0][0:4])>=1960 and int(x[0][0][0:4])<=2014)
 
 #Get max and min 
 #(key, value) = ((year-month-date,station),(max,min))
@@ -131,8 +132,9 @@ maxmin_temperatures = date_temperature.reduceByKey(get_maxmin)
 #(key, value) = ((year-month,station),(max,min,1))
 month_temperature = maxmin_temperatures.map(lambda x:((x[0][0][0:7],x[0][1]),(x[1][0],x[1][1],1)))
 ave_temperature = month_temperature.reduceByKey(lambda a,b: (a[0]+a[1]+b[0]+b[1],a[2]+b[2]))
-ave_temperature = ave_temperature.map(lambda x: (x[0],x[1][0]/x[1][1]))
-#print(max_temperatures.collect())
+ave_temperature = ave_temperature.map(lambda x: (x[0],x[1][0]/x[1][1])).sortBy(ascending = False, keyfunc=lambda k: k[1])
+
+print(ave_temperature.collect())
 
 # Following code will save the result into /user/ACCOUNT_NAME/BDA/output folder
 ave_temperature.saveAsTextFile("BDA/output")
