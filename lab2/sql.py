@@ -4,6 +4,7 @@ from pyspark.sql import SQLContext, Row
 from pyspark.sql import functions as F
 
 sc = SparkContext(appName = "exercise 2")
+sqlContext = SQLContext(sc)
 # This path is to the file on hdfs
 temperature_file = sc.textFile("BDA/input/temperature-readings.csv")
 lines = temperature_file.map(lambda line: line.split(";"))
@@ -16,12 +17,11 @@ tem_df = sqlContext.createDataFrame(tempReadingsRow,tempReadingsString)
 # Register the DataFrame as a table.
 tem_df.registerTempTable("tempReadingsTable")
 # Can run queries now
-year_max =tem_df.filter(tem_df['year']>=1950 and tem_df['year']<=2014).groupBy('year','station').agg(F.max('value').alias('year_max_temperature')).orderBy('year_max_temperature',ascending=0)
-year_min =tem_df.filter(tem_df['year']>=1950 and tem_df['year']<=2014).groupBy('year','station').agg(F.min('value').alias('year_min_temperature')).orderBy('year_min_temperature',ascending=0)
+#year_max =tem_df.filter((tem_df['year']>=1950) & (tem_df['year']<=2014)).groupBy('year','station').agg(F.max('value').alias('year_max_temperature')).orderBy('year_max_temperature',ascending=0)
+year_min =tem_df.filter((tem_df['year']>=1950) & (tem_df['year']<=2014)).groupBy('year','station').agg(F.min('value').alias('year_min_temperature')).orderBy('year_min_temperature',ascending=0)
 
-year_max.select('year','station','year_max_temperature').collect().saveAsTextFile("BDA/output")
-year_min.select('year','station','year_min_temperature').collect().saveAsTextFile("BDA/output")
-
+#year_max.select('year','station','year_max_temperature').rdd.saveAsTextFile("BDA/output")
+year_min.select('year','station','year_min_temperature').rdd.saveAsTextFile("BDA/output")
 
 
 ### 2)
@@ -30,6 +30,7 @@ from pyspark.sql import SQLContext, Row
 from pyspark.sql import functions as F
 
 sc = SparkContext(appName = "exercise 2")
+sqlContext = SQLContext(sc)
 # This path is to the file on hdfs
 temperature_file = sc.textFile("BDA/input/temperature-readings.csv")
 lines = temperature_file.map(lambda line: line.split(";"))
@@ -42,11 +43,13 @@ tem_df = sqlContext.createDataFrame(tempReadingsRow,tempReadingsString)
 # Register the DataFrame as a table.
 tem_df.registerTempTable("tempReadingsTable")
 
-count_readings =tem_df.filter(tem_df['year']>=1950 and tem_df['year']<=2014 and tem_df['value']>10).groupBy('year','month').agg(count('value').alias('count_readings')).orderBy('count_readings',ascending=0)
-distinct_count_readings = tem_df.filter(tem_df['year']>=1950 and tem_df['year']<=2014 and tem_df['value']>10).groupBy('year','month').dropDuplicates('stations').agg(count('value').alias('distinct_count_readings')).orderBy('distinct_count_readings',ascending=0)
+#count_readings =tem_df.filter((tem_df['year']>=1950) & (tem_df['year']<=2014) & (tem_df['value']>10)).groupBy('year','month').agg(F.count('value').alias('count_readings')).orderBy('count_readings',ascending=0)
+distinct_count_readings = tem_df.filter((tem_df['year']>=1950) & (tem_df['year']<=2014) & (tem_df['value']>10)).groupBy('year','month').agg(F.countDistinct('station').alias('distinct_count_readings')).orderBy('distinct_count_readings',ascending=0)
 
-count_readings.collect().saveAsTextFile("BDA/output")
-distinct_count_readings.collect().saveAsTextFile("BDA/output")
+
+
+#count_readings.rdd.saveAsTextFile("BDA/output")
+distinct_count_readings.rdd.saveAsTextFile("BDA/output")
 
 
 
