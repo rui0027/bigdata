@@ -183,18 +183,17 @@ o_lines = o_file.map(lambda line: line.split(";"))
 
 station_list = o_lines.map(lambda x: x[0]).collect()
 b_station_list = sc.broadcast(station_list)
-# (key, value) = ((year-month,station),(precipitation,1))
-pre_all = pre_lines.map(lambda x: ((x[1][0:7],x[0]),(float(x[3]),1)))
-pre_o = pre_all.filter(lambda x: int(x[0][0][0:4])>=1993 and int(x[0][0][0:4])<=2016 and x[0][1] in b_station_list)
+# (key, value) = ((year-month,station),precipitation)
+pre_all = pre_lines.map(lambda x: ((x[1][0:7],x[0]),float(x[3])))
+pre_o = pre_all.filter(lambda x: int(x[0][0][0:4])>=1993 and int(x[0][0][0:4])<=2016 and x[0][1] in b_station_list.value)
 
-#Get average
-pre_o_ave = pre_o.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
-# (key,value)=((year-month,station),avg_pre)
-pre_o_ave = pre_o_ave.map(lambda x:(x[0],x[1][0]/x[1][1]))
-# (key,value)=((year-month),(avg_pre,1))
-pre_o_month = pre_o_ave.map(lambda x: (x[0][0],(x[1],1)))
-pre_o_month = pre_o_month.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
-pre_o = pre_o_month.map(lambda x : (x[0],x[1][0]/x[1][1]))
+#Get monthly precipitation
+# (key,value)=((year-month,station),month_pre)
+pre_o_month = pre_o.reduceByKey(lambda a,b: a+b)
+# (key,value)=((year-month),(month_pre,1))
+pre_o_monthavg = pre_o_month.map(lambda x: (x[0][0],(x[1],1)))
+pre_o_monthavg = pre_o_monthavg.reduceByKey(lambda a,b: (a[0]+b[0],a[1]+b[1]))
+pre_o = pre_o_monthavg.map(lambda x : (x[0],x[1][0]/x[1][1])).sortBy(ascending = False, keyfunc=lambda k: k[1])
 
 print(pre_o.collect())
 
