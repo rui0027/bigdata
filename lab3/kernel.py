@@ -31,45 +31,49 @@ temps = sc.textFile("BDA/input/temperature-readings-small.csv")
 # Your code here
 stations_lines = stations.map(lambda line: line.split(";"))
 temp_lines = temps.map(lambda line: line.split(";"))
+
 #(station_num,(latitude,longitude))
 stations_data = stations_lines.map(lambda x: (x[0],(float(x[3]),float(x[4]))))
+
 #(station_num,distance)
 distance_stations = stations_data.map(lambda x: (x[0],haversine(b,a,x[1][1],x[1][0])))
-#broadcast diatance data
+#broadcast distance data
 broadcast_distance = sc.broadcast(distance_stations.collect())
 
 # gaussian kernel
 def gk(x,h):
   return exp(-x**2/(2*h**2))
 
-#(station_num,(date-time,temperature))
-temp_data = temp_lines.map(lambda x: (x[0],(x[1],x[2],float(x[3])))).cache()
+#map the temp data
+#(station_num,date,time,temperature)
+temp_data = temp_lines.map(lambda x: (x[0],datetime(int(x[1][0:4]),int(x[1][5:7]),int(x[1][8:10])),x[2],float(x[3])))
 
-#preprocess the sum of 3 kernel function of the data posterior to the date
-#preprocess
-#datatime_pre = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),0,0,0)
-#temp_pre = temp_data.filter(lambda x: x[1][0]<datatime_pre)
-#(station_num,kernel_distance,date,kernel_day)
-#kernel_fun_pre = temp_pre.map(lambda x: (x[0],gk(dict(broadcast_distance.value)[x[0]],h_distance),x[1][0],gk((x[1][0]-datatime_interest).days,h_date))
-  
+#filter the dates which are no later than the date of interest(including the day)
+datetime_pre = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]))
+temp_data_pre = temp_data.filter(lambda x: x[1]<=datetime_pre)
+
+#the hour doesn't influence the kernel function of distance and day, so we can preprocess these 2 kernel functions
+#(date,time,distance_kernel,day_kernel,temperature)
+kernel_fun_pre = temp_data_pre.map(lambda x: (x[1],x[2],gk(dict(broadcast_distance.value)[x[0]],h_distance),gk((datatime_pre-x[1]).days,h_date),x[3])).cache()
+
 # prediction
-pre_temp={}
+prediction_temp={}
 
 for time in ["24:00:00", "22:00:00", "20:00:00", "18:00:00", "16:00:00", "14:00:00",
 "12:00:00", "10:00:00", "08:00:00", "06:00:00", "04:00:00"]:
   if time=="24:00:00":
-  	datatime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),int(0),int(time[3:5]),int(time[6:8]))+timedelta(days=1)
+  	datetime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),0,0,0)+timedelta(days=1)
   else:
-  	datatime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),int(time[0:2]),int(time[3:5]),int(time[6:8]))
-  temp_filter = temp_data.filter(lambda x: x[1][0]<datatime_interest)
-  kernel_fun = temp_filter.map(lambda x: (gk(dict(broadcast_distance.value)[x[0]],h_distance),gk((x[1][0]-datatime_interest).days,h_date),gk((x[1][0].hour-datatime_interest.hour),h_time),x[1][1]))
-  # (kernel_distance,kernel_date,kernel_hour,temperature)
-  kernel_fun = kernel_fun.map(lambda x: ((x[0]+x[1]+x[2])*x[3],x[0]+x[1]+x[2]))
-  # (kernel_fun*y,sum_kernel_fun)
-  kernel = kernel_fun.reduce(lambda a,b: (a[0]+b[0],a[1]+b[1]))
-  pre_temp[time]=kernel[0]/kernel[1]
+  	datetime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),int(time[0:2]),int(time[3:5]),int(time[6:8]))
+  kernel_fun = kernel_fun_pre.filter(lambda x: x[0].replace(hour=x[1][0:2],minute=x[1][3:5],second=x[1][6:8])<datetime_interest)
+  #(distance_kernel+day_kernel+hour_kernel,temperature)
+  kernel_all = kernel_fun.map(lambda x: (x[2]+x[3]+gk(abs((datetime(0,0,0,time[0:2],time[3:5],time[6:8])-datetime(0,0,0,x[1][0:2],x[1][3:5],x[1][6:8])).total_seconds())/3600,h_time),x[4]))
+  #(sum_kernel,sum_kernel * temperature) 
+  kernel_sum = kernel_all.map(lambda x:(x[0],x[0]*x[1]))
+  predict_value = kernel_sum.reduce(lambda a,b: (a[0]+b[0],a[1]+b[1]))
+  prediction_temp[time]=kernel[1]/kernel[0]
 
-list(pre_temp.values()).rdd.saveAsTextFile("BDA/output")
+list(prediction_temp.items()).rdd.saveAsTextFile("BDA/output")
 
 
 
