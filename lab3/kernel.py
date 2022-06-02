@@ -59,7 +59,7 @@ for time in ["24:00:00", "22:00:00", "20:00:00", "18:00:00", "16:00:00", "14:00:
   kernel = kernel_fun.reduce(lambda a,b: (a[0]+b[0],a[1]+b[1])).collect()
   pre_temp[time]=kernel[0][0]/kernel[0][1]
 
-pre_temp.saveAsTextFile("BDA/output")
+pre_temp.collect().saveAsTextFile("BDA/output")
 
 
 
