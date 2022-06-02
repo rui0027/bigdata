@@ -23,10 +23,10 @@ h_date = 7# Up to you
 h_time = 0.5# Up to you
 a = 58.4274 # Up to you
 b = 14.826 # Up to you
-date = "2013-07-04" # Up to you
+date = "2014-07-04" # Up to you
 
 stations = sc.textFile("BDA/input/stations.csv")
-temps = sc.textFile("BDA/input/temperature-readings.csv")
+temps = sc.textFile("BDA/input/temperature-readings-small.csv")
 
 # Your code here
 stations_lines = stations.map(lambda line: line.split(";"))
@@ -35,16 +35,24 @@ temp_lines = temps.map(lambda line: line.split(";"))
 stations_data = stations_lines.map(lambda x: (x[0],(float(x[3]),float(x[4]))))
 #(station_num,distance)
 distance_stations = stations_data.map(lambda x: (x[0],haversine(b,a,x[1][1],x[1][0])))
-
+#broadcast diatance data
 broadcast_distance = sc.broadcast(distance_stations.collect())
 
-#(station_num,(date-time,temperature))
-temp_data = temp_lines.map(lambda x: (x[0],(datetime(int(x[1][0:4]),int(x[1][5:7]),int(x[1][8:10]),int(x[2][0:2]),int(x[2][3:5]),int(x[2][6:8])),float(x[3])))).cache()
-
-# gaussian kermel
+# gaussian kernel
 def gk(x,h):
   return exp(-x**2/(2*h**2))
 
+#(station_num,(date-time,temperature))
+temp_data = temp_lines.map(lambda x: (x[0],(x[1],x[2],float(x[3])))).cache()
+
+#preprocess the sum of 3 kernel function of the data posterior to the date
+#preprocess
+#datatime_pre = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),0,0,0)
+#temp_pre = temp_data.filter(lambda x: x[1][0]<datatime_pre)
+#(station_num,kernel_distance,date,kernel_day)
+#kernel_fun_pre = temp_pre.map(lambda x: (x[0],gk(dict(broadcast_distance.value)[x[0]],h_distance),x[1][0],gk((x[1][0]-datatime_interest).days,h_date))
+  
+# prediction
 pre_temp={}
 
 for time in ["24:00:00", "22:00:00", "20:00:00", "18:00:00", "16:00:00", "14:00:00",
@@ -61,8 +69,7 @@ for time in ["24:00:00", "22:00:00", "20:00:00", "18:00:00", "16:00:00", "14:00:
   kernel = kernel_fun.reduce(lambda a,b: (a[0]+b[0],a[1]+b[1]))
   pre_temp[time]=kernel[0]/kernel[1]
 
-pre_temp.collect().saveAsTextFile("BDA/output")
-
+list(pre_temp.values()).rdd.saveAsTextFile("BDA/output")
 
 
 
