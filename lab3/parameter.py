@@ -18,13 +18,6 @@ def haversine(lon1, lat1, lon2, lat2):
   km = 6367 * c
   return km
 
-h_distance = 30# Up to you
-h_date = 3# Up to you
-h_time = 1# Up to you
-a = 58.4274 # Up to you
-b = 14.826 # Up to you
-date = "2013-07-04" # Up to you
-
 stations = sc.textFile("BDA/input/stations.csv")
 temps = sc.textFile("BDA/input/temperature-readings.csv")
 
@@ -54,29 +47,36 @@ def kernel_hour(time_1,time_2,h_t):
 	
 #preprocess
 #(station_num,datetime,temperature)
-temp_data = temp_lines.map(lambda x: (x[0],datetime(int(x[1][0:4]),int(x[1][5:7]),int(x[1][8:10]),int(x[2][0:2]),int(x[2][3:5]),int(x[2][6:8])),float(x[3])))
-temp_data = temp_data.filter(lambda x: x[1]<=(datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),0,0,0)+timedelta(days=1))).cache()
+temp_sample = temp_lines.map(lambda x: (x[0],datetime(int(x[1][0:4]),int(x[1][5:7]),int(x[1][8:10]),int(x[2][0:2]),int(x[2][3:5]),int(x[2][6:8])),float(x[3]))).sample(False,0.1)
+sample_rdd = temp_sample.randomSplit(0.7,0.3)
+temp_train = sample_rdd[0].cache()
+temp_test = sample_rdd[1].cache()
 
-test_h_d=range()
-test_h_day=
-test_h_hour=
-# prediction
-prediction_temp={}
+test_h_d=[10,20,30,40,50,60,70,80,90,100,150,200]
+test_h_day=[1,3,5,7,10,12,15,20,25,30,40,60]
+test_h_hour=[0.5,1,1.5,2,2.5,3,3.5,4,5,6,7,10]
 
-for i in range(30):
-  	datetime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),23,59,59)
-  else:
-  	datetime_interest = datetime(int(date[0:4]),int(date[5:7]),int(date[8:10]),int(time[0:2]),int(time[3:5]),int(time[6:8]))
-  #filter the dates which are posterior	
-  #(station_num,datetime,temperature)
-  temp_filter = temp_data.filter(lambda x: x[1]<datetime_interest)
+error_distance = []
+error_day = []
+error_hour = []
+for i in range(12):
+	error=(0,0,0)
+	for test_date in temp_test.collect():
+  	#filter the dates which are posterior	
+  	#(station_num,datetime,temperature)
+  	temp_train = temp_train.filter(lambda x: x[1]<test_date[1])
+  	#(kernel_diatance, kernel_day, kernel_date,temperature)
+  	kernel_all = temp_train.map(lambda x: (kernel_distance(x[0],test_h_d[i]),kernel_day(test_date[1],x[1],test_h_day[i]),kernel_hour(test_date[1],x[1],test_h_hour[i]),x[2]))
+  	#(kernel_diatance, kernel_day, kernel_date,temperature,kdistance*temp,kday*temp, khou*temp) 
+  	kernel_sum = kernel_all.map(lambda x: (x[0],x[1],x[2],x[3],x[0]*x[3],x[1]*x[3],x[2]*x[3])).reduce(lambda a,b: (a[0]+b[0],a[1]+b[1],a[2]+b[2],a[4]+b[4],a[5]+b[5],a[6]+b[6]))
+  	#(kernel_distance prediction,kernel_day prediction,kernel_hour prediction)
+		kernel_predict = (kernel_sum[4]/kernel_sum[0],kernel_sum[5]/kernel_sum[1],kernel_sum[6]/kernel_sum[2]) 
+  	error = (error[0]+abs(test_date[2]-kernel_predict[0]),error[1]+abs(test_date[2]-kernel_predict[1]),error[2]+abs(test_date[2]-kernel_predict[2]))
+	error_distance.append(error[0])
+	error_day.append(error[1])
+	error_hour.append(error[2])
 
-  #(kernel_diatance, kernel_day, kernel_date,temperature)
-  kernel_all = temp_filter.map(lambda x: (kernel_distance(x[0],test_h_d[i]),kernel_day(datetime_interest,x[1],test_h_day[i]),kernel_hour(datetime_interest,x[1],test_h_hour[i]),x[2]))
-  #(kernel_diatance, kernel_day, kernel_date,temperature,kdistance*temp,kday*temp, khou*temp) 
-  kernel_sum = kernel_all.map(lambda x: (x[0],x[1],x[2],x[3],x[0]*x[3],x[1]*x[3],x[2]*x[3])).reduce(lambda a,b: (a[0]+b[0],a[1]+b[1],a[2]+b[2],a[4]+b[4],a[5]+b[5],a[6]+b[6]))
-  kernel_predict = (kernel_sum[4]/kernel_sum[0],kernel_sum[5]/kernel_sum[1],kernel_sum[6]/kernel_sum[2]) 
-  prediction_temp[time]=kernel_sum[1]/kernel_sum[0]
+parameters = [test_h_d[argmin(error_distance)],test_h_day[argmin(error_day)],test_h_hour[argmin(error_hour)]]
 
-sc.parallelize(prediction_temp.items()).saveAsTextFile("BDA/output")
+sc.parallelize(parameters).saveAsTextFile("BDA/output")
 
