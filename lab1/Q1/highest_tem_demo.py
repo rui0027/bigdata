@@ -148,14 +148,17 @@ pre_lines = precipitation_file.map(lambda line: line.split(";"))
 
 # (key, value) = (station,temperature)
 station_temp = tem_lines.map(lambda x: (x[0],float(x[3])))
-# (key, value) = (station,precipitation)
-station_pre = pre_lines.map(lambda x: (x[0],float(x[3])))
+# (key, value) = ((station,date),precipitation)
+station_pre = pre_lines.map(lambda x: ((x[0],x[1]),float(x[3])))
 
-#Get max, filter
+#Get daily pre
+# (key, value) = (station,daily precipitation)
+daily_pre=station_pre.reduceByKey(lambda a,b: a+b).map(lambda x: (x[0],x(2)))
+#Get max temp, daily pre
 max_temp = station_temp.reduceByKey(lambda a,b: a if a>=b else b)
 max_temp = max_temp.filter(lambda x: x[1]>=25 and x[1]<=30)
-max_pre = station_pre.reduceByKey(lambda a,b: a if a>=b else b)
-max_pre = max_pre.filter(lambda x: x[1]>=10 and x[1]<=20)
+max_pre = daily_pre.reduceByKey(lambda a,b: a if a>=b else b)
+max_pre = max_pre.filter(lambda x: x[1]>=100 and x[1]<=200)
 
 #merge
 station_max = max_temp.join(max_pre)
