@@ -65,7 +65,7 @@ test_h_hour=[0.5,1,1.5,2,2.5,3,3.5,4,5,6,7,10]
 error_distance = []
 error_day = []
 error_hour = []
-for i in range(12):
+for in range(12):
 	error=(0,0,0)
 	for test_date in temp_test.collect():
 		#filter the dates which are posterior	
@@ -78,7 +78,7 @@ for i in range(12):
   		kernel_sum = kernel_sum.reduce(lambda a,b: (a[0]+b[0],a[1]+b[1],a[2]+b[2],a[3]+b[3],a[4]+b[4],a[5]+b[5]))
   		#(kernel_distance prediction,kernel_day prediction,kernel_hour prediction)
 		kernel_predict = (kernel_sum[3]/kernel_sum[0],kernel_sum[4]/kernel_sum[1],kernel_sum[5]/kernel_sum[2]) 
-  	error = (error[0]+abs(test_date[2]-kernel_predict[0]),error[1]+abs(test_date[2]-kernel_predict[1]),error[2]+abs(test_date[2]-kernel_predict[2]))
+  		error = (error[0]+abs(test_date[2]-kernel_predict[0]),error[1]+abs(test_date[2]-kernel_predict[1]),error[2]+abs(test_date[2]-kernel_predict[2]))
 	error_distance.append(error[0])
 	error_day.append(error[1])
 	error_hour.append(error[2])
