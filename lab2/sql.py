@@ -104,14 +104,14 @@ tem_df.registerTempTable("tempReadingsTable")
 pre_df.registerTempTable("preReadingsTable")
 # Can run queries now
 stations_temp = tem_df.groupBy('station').agg(F.max('temp_value').alias('max_temperature'))
-stations_temp = stations_temp.filter((stations_temp['max_temperature']>=25) & (stations_temp['max_temperature']<=30))
+
 stations_pre = pre_df.groupBy('station',"date").agg(F.sum('pre_value').alias('daily_precipitation'))
-stations_pre = pre_df.groupBy('station').agg(F.max('daily_precipitation').alias('max_precipitation'))
-stations_pre = stations_pre.filter((stations_pre['max_precipitation']>=100) & (stations_pre['max_precipitation']<=200))
-station_list = stations_temp.join(stations_pre,stations_temp['station']==stations_pre['station'],'inner').drop(stations_pre['station']).orderBy('station',ascending=0)
+stations_pre = stations_pre.groupBy('station').agg(F.max('daily_precipitation').alias('max_precipitation'))
+
+station_list = stations_pre.join(stations_temp,stations_pre['station']==stations_temp['station'],'inner').drop(stations_temp['station'])
+station_list = station_list.filter((station_list['max_temperature']>=25) & (station_list['max_temperature']<=30)& (station_list['max_precipitation']<=200)& (station_list['max_precipitation']>=100)).orderBy('station',ascending=0)
 
 station_list.rdd.saveAsTextFile("BDA/output")
-
 
 
 ### 5)
