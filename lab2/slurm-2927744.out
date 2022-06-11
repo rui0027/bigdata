@@ -1,0 +1,536 @@
+START AT: Sat Jun 11 16:10:07 CEST 2022
+#### NSC HADOOP WRAPPER: FORMATTING HDFS
+#### NSC HADOOP WRAPPER: RUNNING START-DFS
+#### NSC HADOOP WRAPPER: CREATE HDFS DIRECTORY STRUCTURE
+#### NSC HADOOP WRAPPER: STARTING YARN
+#### NSC HADOOP WRAPPER: HADOOP STARTUP FINISHED
+Prepare output and input directories and files...
+Running Your program...
+WARN  2022-06-11 16:10:52,795 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+INFO  2022-06-11 16:10:53,288 [main][RMProxy.java:98] : Connecting to ResourceManager at n1222/10.28.12.22:8032
+INFO  2022-06-11 16:10:53,431 [main][Logging.scala:54] : Requesting a new application from cluster with 2 NodeManagers
+INFO  2022-06-11 16:10:53,526 [main][Logging.scala:54] : Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+INFO  2022-06-11 16:10:53,527 [main][Logging.scala:54] : Will allocate AM container, with 2432 MB memory including 384 MB overhead
+INFO  2022-06-11 16:10:53,527 [main][Logging.scala:54] : Setting up container launch context for our AM
+INFO  2022-06-11 16:10:53,531 [main][Logging.scala:54] : Setting up the launch environment for our AM container
+INFO  2022-06-11 16:10:53,539 [main][Logging.scala:54] : Preparing resources for our AM container
+WARN  2022-06-11 16:10:53,577 [main][Logging.scala:66] : Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+INFO  2022-06-11 16:10:54,971 [main][Logging.scala:54] : Uploading resource file:/tmp/spark-333c4f0c-ae52-4efa-94cd-ab93a4f99553/__spark_libs__6052592164303146944.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001/__spark_libs__6052592164303146944.zip
+INFO  2022-06-11 16:10:55,607 [main][Logging.scala:54] : Uploading resource file:/home/x_hozha/BDA_demo/demo.py -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001/demo.py
+INFO  2022-06-11 16:10:56,040 [main][Logging.scala:54] : Uploading resource file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/spark-2.4.3-bin-hadoop2.7/python/lib/pyspark.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001/pyspark.zip
+INFO  2022-06-11 16:10:56,075 [main][Logging.scala:54] : Uploading resource file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001/py4j-0.10.7-src.zip
+INFO  2022-06-11 16:10:56,211 [main][Logging.scala:54] : Uploading resource file:/tmp/spark-333c4f0c-ae52-4efa-94cd-ab93a4f99553/__spark_conf__8823905549499687201.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001/__spark_conf__.zip
+INFO  2022-06-11 16:10:56,264 [main][Logging.scala:54] : Changing view acls to: x_hozha
+INFO  2022-06-11 16:10:56,265 [main][Logging.scala:54] : Changing modify acls to: x_hozha
+INFO  2022-06-11 16:10:56,266 [main][Logging.scala:54] : Changing view acls groups to: 
+INFO  2022-06-11 16:10:56,267 [main][Logging.scala:54] : Changing modify acls groups to: 
+INFO  2022-06-11 16:10:56,267 [main][Logging.scala:54] : SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(x_hozha); groups with view permissions: Set(); users  with modify permissions: Set(x_hozha); groups with modify permissions: Set()
+INFO  2022-06-11 16:10:57,109 [main][Logging.scala:54] : Submitting application application_1654956623647_0001 to ResourceManager
+INFO  2022-06-11 16:10:57,509 [main][YarnClientImpl.java:273] : Submitted application application_1654956623647_0001
+INFO  2022-06-11 16:10:58,517 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:10:58,524 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1654956657215
+	 final status: UNDEFINED
+	 tracking URL: http://n1222:8088/proxy/application_1654956623647_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:10:59,531 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:11:00,537 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:11:01,543 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:11:02,547 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:11:03,552 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:11:04,556 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:04,557 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: n1222
+	 ApplicationMaster RPC port: 41150
+	 queue: default
+	 start time: 1654956657215
+	 final status: UNDEFINED
+	 tracking URL: http://n1222:8088/proxy/application_1654956623647_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:11:05,568 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:06,572 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:07,576 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:08,580 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:09,585 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:10,589 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:11,596 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:12,600 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:13,605 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:14,609 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:15,613 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:16,617 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:17,621 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:18,625 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:19,629 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:20,633 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:21,637 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:22,642 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:23,646 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:24,650 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:25,653 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:26,657 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:27,659 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:28,662 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:29,665 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:30,669 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:31,671 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:32,674 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:33,678 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:34,681 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:35,684 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:36,689 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:37,693 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:38,697 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:39,700 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:40,704 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:41,707 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:42,711 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:43,715 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:44,718 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:45,722 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:46,726 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:47,729 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:48,732 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:49,736 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:50,740 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:51,743 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:52,746 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:53,750 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:54,753 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:55,758 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:56,761 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:57,765 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:58,768 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:11:59,771 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:00,775 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:01,780 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:02,783 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:03,786 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:04,789 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:05,793 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:06,795 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:07,797 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:08,802 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: RUNNING)
+INFO  2022-06-11 16:12:09,806 [main][Logging.scala:54] : Application report for application_1654956623647_0001 (state: FINISHED)
+INFO  2022-06-11 16:12:09,807 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: n1222
+	 ApplicationMaster RPC port: 41150
+	 queue: default
+	 start time: 1654956657215
+	 final status: SUCCEEDED
+	 tracking URL: http://n1222:8088/proxy/application_1654956623647_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:12:09,824 [Thread-1][Logging.scala:54] : Shutdown hook called
+INFO  2022-06-11 16:12:09,826 [Thread-1][Logging.scala:54] : Deleting directory /tmp/spark-333c4f0c-ae52-4efa-94cd-ab93a4f99553
+INFO  2022-06-11 16:12:09,840 [Thread-1][Logging.scala:54] : Deleting directory /tmp/spark-ff5751ae-a13e-4373-b32b-b958f573c324
+================= FINAL OUTPUT ==========================================
+=========================================================================
+Applicaton id: application_1654956623647_0001
+=========================================================================
+=                              stderr                                   =
+=========================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:11,892 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000009 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:08,860 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000007 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:07,293 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000005 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:6558
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:06,510 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+WARN  2022-06-11 16:11:21,651 [stdout writer for python][BlockReaderFactory.java:716] : I/O error constructing remote block reader.
+java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:659)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3436)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:673)
+	at org.apache.hadoop.hdfs.DFSInputStream.seekToBlockSource(DFSInputStream.java:1575)
+	at org.apache.hadoop.hdfs.DFSInputStream.readBuffer(DFSInputStream.java:855)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:891)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:934)
+	at java.io.DataInputStream.read(DataInputStream.java:149)
+	at org.apache.hadoop.mapreduce.lib.input.UncompressedSplitLineReader.fillBuffer(UncompressedSplitLineReader.java:62)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:216)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:174)
+	at org.apache.hadoop.mapreduce.lib.input.UncompressedSplitLineReader.readLine(UncompressedSplitLineReader.java:94)
+	at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:248)
+	at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:48)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:293)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:224)
+	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:409)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:891)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1334)
+	at org.apache.spark.api.python.PythonRDD$.writeIteratorToStream(PythonRDD.scala:224)
+	at org.apache.spark.api.python.PythonRunner$$anon$2.writeIteratorToStream(PythonRunner.scala:557)
+	at org.apache.spark.api.python.BasePythonRunner$WriterThread$$anonfun$run$1.apply(PythonRunner.scala:345)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
+	at org.apache.spark.api.python.BasePythonRunner$WriterThread.run(PythonRunner.scala:194)
+WARN  2022-06-11 16:11:21,653 [stdout writer for python][DFSInputStream.java:692] : Failed to connect to /10.28.12.22:9866 for block, add to deadNodes and continue. java.nio.channels.ClosedByInterruptException
+java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:659)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3436)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:673)
+	at org.apache.hadoop.hdfs.DFSInputStream.seekToBlockSource(DFSInputStream.java:1575)
+	at org.apache.hadoop.hdfs.DFSInputStream.readBuffer(DFSInputStream.java:855)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:891)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:934)
+	at java.io.DataInputStream.read(DataInputStream.java:149)
+	at org.apache.hadoop.mapreduce.lib.input.UncompressedSplitLineReader.fillBuffer(UncompressedSplitLineReader.java:62)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:216)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:174)
+	at org.apache.hadoop.mapreduce.lib.input.UncompressedSplitLineReader.readLine(UncompressedSplitLineReader.java:94)
+	at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:248)
+	at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:48)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:293)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:224)
+	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:409)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:891)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1334)
+	at org.apache.spark.api.python.PythonRDD$.writeIteratorToStream(PythonRDD.scala:224)
+	at org.apache.spark.api.python.PythonRunner$$anon$2.writeIteratorToStream(PythonRunner.scala:557)
+	at org.apache.spark.api.python.BasePythonRunner$WriterThread$$anonfun$run$1.apply(PythonRunner.scala:345)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
+	at org.apache.spark.api.python.BasePythonRunner$WriterThread.run(PythonRunner.scala:194)
+WARN  2022-06-11 16:11:21,655 [stdout writer for python][DFSInputStream.java:1007] : DFS chooseDataNode: got # 1 IOException, will wait for 197.3397828286183 msec.
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000003 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:02,071 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000001 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:11,951 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000010 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:12,006 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000008 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:09,294 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000006 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:09,329 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000004 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__6052592164303146944.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:11:09,325 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000002 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+=========================================================================
+=                              result                                   =
+=========================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:115288
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000007 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:130382
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000005 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:128265
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000003 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:125515
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000001 on n1222_39543
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:285403
+LogContents:
+===============================================================================
+YARN executor launch context:
+  env:
+    CLASSPATH -> {{PWD}}<CPS>{{PWD}}/__spark_conf__<CPS>{{PWD}}/__spark_libs__/*<CPS>$HADOOP_CONF_DIR<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/*<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/lib/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*<CPS>{{PWD}}/__spark_conf__/__hadoop_conf__
+    SPARK_YARN_STAGING_DIR -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654956623647_0001
+    SPARK_USER -> x_hozha
+    PYTHONPATH -> {{PWD}}/pyspark.zip<CPS>{{PWD}}/py4j-0.10.7-src.zip
+
+  command:
+    {{JAVA_HOME}}/bin/java \ 
+      -server \ 
+      -Xmx2048m \ 
+      -Djava.io.tmpdir={{PWD}}/tmp \ 
+      '-Dspark.driver.port=41150' \ 
+      '-Dspark.ui.port=0' \ 
+      -Dspark.yarn.app.container.log.dir=<LOG_DIR> \ 
+      -XX:OnOutOfMemoryError='kill %p' \ 
+      org.apache.spark.executor.CoarseGrainedExecutorBackend \ 
+      --driver-url \ 
+      spark://CoarseGrainedScheduler@n1222:41150 \ 
+      --executor-id \ 
+      <executorId> \ 
+      --hostname \ 
+      <hostname> \ 
+      --cores \ 
+      4 \ 
+      --app-id \ 
+      application_1654956623647_0001 \ 
+      --user-class-path \ 
+      file:$PWD/__app__.jar \ 
+      1><LOG_DIR>/stdout \ 
+      2><LOG_DIR>/stderr
+
+  resources:
+    pyspark.zip -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654956623647_0001/pyspark.zip" } size: 590823 timestamp: 1654956656064 type: FILE visibility: PRIVATE
+    py4j-0.10.7-src.zip -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654956623647_0001/py4j-0.10.7-src.zip" } size: 42437 timestamp: 1654956656095 type: FILE visibility: PRIVATE
+    __spark_libs__ -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654956623647_0001/__spark_libs__6052592164303146944.zip" } size: 238629254 timestamp: 1654956655512 type: ARCHIVE visibility: PRIVATE
+    __spark_conf__ -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654956623647_0001/__spark_conf__.zip" } size: 187437 timestamp: 1654956656227 type: ARCHIVE visibility: PRIVATE
+
+===============================================================================
+(serviceOption=None,
+ services=List(),
+ started=false)
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000010 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:34808
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000008 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:36200
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000006 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:33093
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000004 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:34894
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654956623647_0001_01_000002 on n1225_35495
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:12:11 +0200 2022
+LogLength:36084
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+#### NSC HADOOP WRAPPER: STOPPING YARN
+#### NSC HADOOP WRAPPER: RUNNING STOP-DFS
+#### NSC HADOOP WRAPPER: HADOOP SHUTDOWN FINISHED
+END AT: Sat Jun 11 16:12:25 CEST 2022
