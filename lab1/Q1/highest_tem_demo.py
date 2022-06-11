@@ -153,7 +153,7 @@ station_pre = pre_lines.map(lambda x: ((x[0],x[1]),float(x[3])))
 
 #Get daily pre
 # (key, value) = (station,daily precipitation)
-daily_pre=station_pre.reduceByKey(lambda a,b: a+b).map(lambda x: (x[0],x(2)))
+daily_pre=station_pre.reduceByKey(lambda a,b: a+b).map(lambda x: (x[0][0],x[1]))
 #Get max temp, daily pre
 max_temp = station_temp.reduceByKey(lambda a,b: a if a>=b else b)
 max_temp = max_temp.filter(lambda x: x[1]>=25 and x[1]<=30)
