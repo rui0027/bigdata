@@ -1,0 +1,743 @@
+START AT: Sat Jun 11 16:41:03 CEST 2022
+#### NSC HADOOP WRAPPER: FORMATTING HDFS
+#### NSC HADOOP WRAPPER: RUNNING START-DFS
+#### NSC HADOOP WRAPPER: CREATE HDFS DIRECTORY STRUCTURE
+#### NSC HADOOP WRAPPER: STARTING YARN
+#### NSC HADOOP WRAPPER: HADOOP STARTUP FINISHED
+Prepare output and input directories and files...
+Running Your program...
+WARN  2022-06-11 16:41:41,112 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+INFO  2022-06-11 16:41:41,611 [main][RMProxy.java:98] : Connecting to ResourceManager at n1222/10.28.12.22:8032
+INFO  2022-06-11 16:41:41,759 [main][Logging.scala:54] : Requesting a new application from cluster with 2 NodeManagers
+INFO  2022-06-11 16:41:41,849 [main][Logging.scala:54] : Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+INFO  2022-06-11 16:41:41,850 [main][Logging.scala:54] : Will allocate AM container, with 2432 MB memory including 384 MB overhead
+INFO  2022-06-11 16:41:41,850 [main][Logging.scala:54] : Setting up container launch context for our AM
+INFO  2022-06-11 16:41:41,854 [main][Logging.scala:54] : Setting up the launch environment for our AM container
+INFO  2022-06-11 16:41:41,862 [main][Logging.scala:54] : Preparing resources for our AM container
+WARN  2022-06-11 16:41:41,900 [main][Logging.scala:66] : Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+INFO  2022-06-11 16:41:43,322 [main][Logging.scala:54] : Uploading resource file:/tmp/spark-51a33865-a12f-4f26-a24c-3f0cbb3b4f0d/__spark_libs__5865497438344650925.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001/__spark_libs__5865497438344650925.zip
+INFO  2022-06-11 16:41:43,953 [main][Logging.scala:54] : Uploading resource file:/home/x_hozha/BDA_demo/demo.py -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001/demo.py
+INFO  2022-06-11 16:41:44,388 [main][Logging.scala:54] : Uploading resource file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/spark-2.4.3-bin-hadoop2.7/python/lib/pyspark.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001/pyspark.zip
+INFO  2022-06-11 16:41:44,824 [main][Logging.scala:54] : Uploading resource file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001/py4j-0.10.7-src.zip
+INFO  2022-06-11 16:41:45,362 [main][Logging.scala:54] : Uploading resource file:/tmp/spark-51a33865-a12f-4f26-a24c-3f0cbb3b4f0d/__spark_conf__7849829709377527929.zip -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001/__spark_conf__.zip
+INFO  2022-06-11 16:41:45,419 [main][Logging.scala:54] : Changing view acls to: x_hozha
+INFO  2022-06-11 16:41:45,420 [main][Logging.scala:54] : Changing modify acls to: x_hozha
+INFO  2022-06-11 16:41:45,421 [main][Logging.scala:54] : Changing view acls groups to: 
+INFO  2022-06-11 16:41:45,421 [main][Logging.scala:54] : Changing modify acls groups to: 
+INFO  2022-06-11 16:41:45,422 [main][Logging.scala:54] : SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(x_hozha); groups with view permissions: Set(); users  with modify permissions: Set(x_hozha); groups with modify permissions: Set()
+INFO  2022-06-11 16:41:46,273 [main][Logging.scala:54] : Submitting application application_1654958480390_0001 to ResourceManager
+INFO  2022-06-11 16:41:46,677 [main][YarnClientImpl.java:273] : Submitted application application_1654958480390_0001
+INFO  2022-06-11 16:41:47,685 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:47,692 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1654958506371
+	 final status: UNDEFINED
+	 tracking URL: http://n1222:8088/proxy/application_1654958480390_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:41:48,697 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:49,702 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:50,708 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:51,713 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:52,717 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: ACCEPTED)
+INFO  2022-06-11 16:41:53,722 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:53,723 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: n1222
+	 ApplicationMaster RPC port: 44049
+	 queue: default
+	 start time: 1654958506371
+	 final status: UNDEFINED
+	 tracking URL: http://n1222:8088/proxy/application_1654958480390_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:41:54,727 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:55,731 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:56,736 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:57,740 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:58,745 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:41:59,750 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:00,756 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:01,760 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:02,765 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:03,769 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:04,772 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:05,776 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:06,779 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:07,783 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:08,787 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:09,791 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:10,795 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:11,798 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:12,802 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:13,806 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:14,810 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:15,814 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:16,818 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:17,822 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:18,826 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:19,830 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:20,834 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:21,837 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:22,841 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:23,845 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:24,849 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:25,854 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:26,858 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:27,862 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:28,866 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:29,869 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:30,873 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:31,878 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:32,881 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:33,885 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:34,889 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:35,893 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:36,897 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:37,900 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:38,904 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:39,908 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:40,911 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:41,915 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:42,919 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:43,923 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:44,927 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:45,930 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:46,935 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:47,938 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:48,942 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:49,945 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:50,949 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:51,953 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:52,957 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:53,960 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:54,964 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:55,967 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:56,971 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:57,975 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:58,979 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:42:59,982 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:00,986 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:01,990 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:02,994 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:03,997 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:05,001 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:06,004 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:07,007 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:08,011 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:09,014 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:10,018 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:11,021 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:12,025 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:13,028 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:14,031 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:15,035 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:16,038 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:17,041 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:18,045 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:19,048 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:20,051 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:21,055 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:22,058 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:23,062 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:24,065 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:25,068 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:26,071 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:27,075 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:28,078 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:29,081 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:30,084 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:31,088 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:32,091 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:33,094 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:34,098 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:35,101 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:36,104 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:37,107 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:38,110 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:39,114 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:40,117 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:41,120 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:42,124 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:43,127 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:44,130 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:45,133 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:46,136 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:47,139 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:48,142 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:49,145 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:50,148 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:51,151 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:52,154 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:53,159 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:54,163 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:55,167 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:56,170 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:57,173 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:58,176 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:43:59,179 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:00,182 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:01,184 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:02,187 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:03,190 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:04,192 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:05,195 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:06,198 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:07,201 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:08,203 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:09,205 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:10,208 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:11,211 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:12,214 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:13,216 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:14,219 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:15,222 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:16,225 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:17,228 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:18,230 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:19,234 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:20,237 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:21,239 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:22,242 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:23,245 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:24,248 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:25,251 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:26,253 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:27,256 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:28,259 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:29,262 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:30,264 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:31,267 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:32,270 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:33,273 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:34,275 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:35,278 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:36,281 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:37,284 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:38,287 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:39,289 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:40,292 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:41,295 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:42,298 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:43,300 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:44,303 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:45,306 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:46,309 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:47,311 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:48,314 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:49,317 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:50,320 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:51,322 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:52,325 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:53,328 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:54,330 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:55,333 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:56,342 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:57,344 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:58,348 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:44:59,351 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:00,353 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:01,357 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:02,359 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:03,362 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:04,365 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:05,367 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:06,370 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:07,372 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:08,375 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:09,378 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:10,381 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:11,384 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:12,387 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:13,389 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:14,392 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:15,394 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:16,397 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:17,400 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:18,402 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:19,405 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:20,408 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:21,410 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:22,413 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:23,415 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:24,418 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:25,420 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:26,423 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:27,425 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:28,428 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:29,430 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:30,433 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:31,435 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:32,438 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:33,440 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:34,443 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:35,445 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:36,448 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:37,451 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:38,453 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:39,456 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:40,459 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:41,461 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:42,464 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:43,467 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:44,469 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:45,472 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:46,474 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:47,477 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:48,479 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:49,482 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:50,484 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:51,487 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:52,489 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:53,492 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:54,495 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:55,497 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:56,500 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:57,503 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:58,505 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:45:59,508 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:00,511 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:01,515 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:02,519 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:03,522 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:04,524 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:05,527 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:06,529 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:07,532 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:08,534 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:09,537 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:10,540 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:11,542 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:12,544 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:13,547 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:14,549 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:15,552 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:16,555 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:17,557 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:18,560 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:19,562 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:20,565 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:21,567 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:22,570 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:23,572 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:24,575 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:25,577 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:26,579 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:27,582 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:28,584 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:29,586 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:30,589 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:31,591 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:32,593 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:33,596 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:34,598 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:35,600 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:36,603 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:37,605 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:38,608 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:39,610 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:40,612 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:41,615 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:42,617 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:43,619 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:44,622 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:45,624 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:46,626 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:47,629 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:48,631 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:49,634 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:50,636 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:51,638 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:52,641 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:53,643 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:54,645 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:55,648 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:56,650 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:57,653 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:58,655 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:46:59,657 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:00,659 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:01,662 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:02,664 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:03,667 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:04,669 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:05,671 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:06,674 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:07,676 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:08,679 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:09,681 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:10,684 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:11,686 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:12,689 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:13,691 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:14,694 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:15,696 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:16,699 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:17,701 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:18,704 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:19,706 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:20,708 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:21,710 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:22,713 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:23,715 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: RUNNING)
+INFO  2022-06-11 16:47:24,717 [main][Logging.scala:54] : Application report for application_1654958480390_0001 (state: FINISHED)
+INFO  2022-06-11 16:47:24,718 [main][Logging.scala:54] : 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: n1222
+	 ApplicationMaster RPC port: 44049
+	 queue: default
+	 start time: 1654958506371
+	 final status: SUCCEEDED
+	 tracking URL: http://n1222:8088/proxy/application_1654958480390_0001/
+	 user: x_hozha
+INFO  2022-06-11 16:47:24,736 [Thread-1][Logging.scala:54] : Shutdown hook called
+INFO  2022-06-11 16:47:24,737 [Thread-1][Logging.scala:54] : Deleting directory /tmp/spark-8005ef84-9f54-4a61-89da-414fb9031a10
+INFO  2022-06-11 16:47:24,752 [Thread-1][Logging.scala:54] : Deleting directory /tmp/spark-51a33865-a12f-4f26-a24c-3f0cbb3b4f0d
+================= FINAL OUTPUT ==========================================
+('22:00:00', 15.523508621019355)
+('04:00:00', 14.501057996189804)
+('08:00:00', 17.728143037373503)
+('06:00:00', 16.09196437996873)
+('12:00:00', 20.04904422796261)
+('14:00:00', 20.197918762298432)
+('18:00:00', 18.545663910429788)
+('24:00:00', 14.731547479911779)
+('20:00:00', 16.99853105879722)
+('10:00:00', 19.22048850790134)
+('16:00:00', 19.656387076679156)
+=========================================================================
+Applicaton id: application_1654958480390_0001
+=========================================================================
+=                              stderr                                   =
+=========================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:50,958 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000001 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:55,212 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000003 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:56,066 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000005 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:57,626 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000007 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:42:00,696 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000009 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:42:00,757 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000010 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:57,995 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000002 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:57,984 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000004 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:41:57,987 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000006 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stderr
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:764
+LogContents:
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/tmp/hadoop-x_hozha/nm-local-dir/usercache/x_hozha/filecache/11/__spark_libs__5865497438344650925.zip/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/software/sse/manual/spark/spark-2.4.3-hadoop2.7-nsc1/hadoop-3.1.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+WARN  2022-06-11 16:42:00,709 [main][NativeCodeLoader.java:62] : Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+End of LogType:stderr
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000008 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+=========================================================================
+=                              result                                   =
+=========================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:137755
+LogContents:
+===============================================================================
+YARN executor launch context:
+  env:
+    CLASSPATH -> {{PWD}}<CPS>{{PWD}}/__spark_conf__<CPS>{{PWD}}/__spark_libs__/*<CPS>$HADOOP_CONF_DIR<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/*<CPS>$HADOOP_COMMON_HOME/share/hadoop/common/lib/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/*<CPS>$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/*<CPS>$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*<CPS>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*<CPS>{{PWD}}/__spark_conf__/__hadoop_conf__
+    SPARK_YARN_STAGING_DIR -> hdfs://n1222:9000/user/x_hozha/.sparkStaging/application_1654958480390_0001
+    SPARK_USER -> x_hozha
+    PYTHONPATH -> {{PWD}}/pyspark.zip<CPS>{{PWD}}/py4j-0.10.7-src.zip
+
+  command:
+    {{JAVA_HOME}}/bin/java \ 
+      -server \ 
+      -Xmx2048m \ 
+      -Djava.io.tmpdir={{PWD}}/tmp \ 
+      '-Dspark.driver.port=44049' \ 
+      '-Dspark.ui.port=0' \ 
+      -Dspark.yarn.app.container.log.dir=<LOG_DIR> \ 
+      -XX:OnOutOfMemoryError='kill %p' \ 
+      org.apache.spark.executor.CoarseGrainedExecutorBackend \ 
+      --driver-url \ 
+      spark://CoarseGrainedScheduler@n1222:44049 \ 
+      --executor-id \ 
+      <executorId> \ 
+      --hostname \ 
+      <hostname> \ 
+      --cores \ 
+      4 \ 
+      --app-id \ 
+      application_1654958480390_0001 \ 
+      --user-class-path \ 
+      file:$PWD/__app__.jar \ 
+      1><LOG_DIR>/stdout \ 
+      2><LOG_DIR>/stderr
+
+  resources:
+    pyspark.zip -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654958480390_0001/pyspark.zip" } size: 590823 timestamp: 1654958504812 type: FILE visibility: PRIVATE
+    py4j-0.10.7-src.zip -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654958480390_0001/py4j-0.10.7-src.zip" } size: 42437 timestamp: 1654958505246 type: FILE visibility: PRIVATE
+    __spark_libs__ -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654958480390_0001/__spark_libs__5865497438344650925.zip" } size: 238629254 timestamp: 1654958503864 type: ARCHIVE visibility: PRIVATE
+    __spark_conf__ -> resource { scheme: "hdfs" host: "n1222" port: 9000 file: "/user/x_hozha/.sparkStaging/application_1654958480390_0001/__spark_conf__.zip" } size: 187437 timestamp: 1654958505378 type: ARCHIVE visibility: PRIVATE
+
+===============================================================================
+(serviceOption=None,
+ services=List(),
+ started=false)
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000003 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:51604
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000005 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:51340
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000007 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:49885
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000009 on n1222_43123
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:49768
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000010 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:9910
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000002 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:9910
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000004 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:9909
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000006 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:9908
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1654958480390_0001_01_000008 on n1225_44754
+LogAggregationType: AGGREGATED
+================================================================
+LogType:stdout
+LogLastModifiedTime:lö jun 11 16:47:27 +0200 2022
+LogLength:9910
+LogContents:
+
+End of LogType:stdout
+***********************************************************************
+
+#### NSC HADOOP WRAPPER: STOPPING YARN
+#### NSC HADOOP WRAPPER: RUNNING STOP-DFS
+#### NSC HADOOP WRAPPER: HADOOP SHUTDOWN FINISHED
+END AT: Sat Jun 11 16:47:41 CEST 2022
