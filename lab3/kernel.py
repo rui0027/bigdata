@@ -18,9 +18,10 @@ def haversine(lon1, lat1, lon2, lat2):
   km = 6367 * c
   return km
 
-h_distance = 30# Up to you
+h_distance = 100# Up to you
 h_date = 3# Up to you
-h_time = 1# Up to you
+h_time = 2# Up to you
+
 a = 58.4274 # Up to you
 b = 14.826 # Up to you
 date = "2013-07-04" # Up to you
@@ -71,9 +72,11 @@ for time in ["24:00:00", "22:00:00", "20:00:00", "18:00:00", "16:00:00", "14:00:
   temp_filter = temp_data.filter(lambda x: x[1]<datetime_interest)
   #(kernel_all,temperatures)
   kernel_all = temp_filter.map(lambda x: (kernel_distance(x[0])+kernel_day(datetime_interest,x[1])+kernel_hour(datetime_interest,x[1]),x[2]))
+  #kernel_all = temp_filter.map(lambda x: (kernel_distance(x[0])*kernel_day(datetime_interest,x[1])*kernel_hour(datetime_interest,x[1]),x[2]))
+  
   #(sum:kernel,sum:kernel * temperature) 
   kernel_sum = kernel_all.map(lambda x: (x[0],x[0]*x[1])).reduce(lambda a,b: (a[0]+b[0],a[1]+b[1]))
   prediction_temp[time]=kernel_sum[1]/kernel_sum[0]
 
 sc.parallelize(prediction_temp.items()).saveAsTextFile("BDA/output")
-#kernel_all.saveAsTextFile("BDA/output")
+
